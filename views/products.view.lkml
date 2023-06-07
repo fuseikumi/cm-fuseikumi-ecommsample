@@ -14,66 +14,114 @@ view: products {
     sql: ${TABLE}.id ;;
   }
 
-  # Here's what a typical dimension looks like in LookML.
-  # A dimension is a groupable field that can be used to filter query results.
-  # This dimension will be called "Brand" in Explore.
-
-  dimension: brand {
-    type: string
-    sql: ${TABLE}.brand ;;
-  }
-
-  dimension: category {
-    type: string
-    sql: ${TABLE}.category ;;
-  }
-
-  dimension: cost {
-    type: number
-    sql: ${TABLE}.cost ;;
-  }
-
-  # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
-  # measures for this dimension, but you can also add measures of many different aggregates.
-  # Click on the type parameter to see all the options in the Quick Help panel on the right.
-
-  measure: total_cost {
-    type: sum
-    sql: ${cost} ;;
-  }
-
-  measure: average_cost {
-    type: average
-    sql: ${cost} ;;
-  }
-
-  dimension: department {
-    type: string
-    sql: ${TABLE}.department ;;
-  }
-
-  dimension: distribution_center_id {
-    type: number
-    sql: ${TABLE}.distribution_center_id ;;
-  }
-
   dimension: name {
     type: string
     sql: ${TABLE}.name ;;
   }
 
-  dimension: retail_price {
-    type: number
-    sql: ${TABLE}.retail_price ;;
-  }
+  # dimension: name_concat {
+  #   type: string
+  #   sql: CONCAT("XX_",${name}) ;;
+  # }
 
-  dimension: sku {
-    type: string
-    sql: ${TABLE}.sku ;;
-  }
+  # dimension: name_contains {
+  #   type: string
+  #   sql: CONTAINS_SUBSTR(${name},"Coachella") ;;
+  # }
 
-  measure: count {
-    type: count
-    drill_fields: [id, name, shipped_order_items.count]
-  }
+  # dimension: name_length {
+  #   type: number
+  #   sql: length(${name}) ;;
+  # }
+
+  # dimension: name_lower {
+  #   type: string
+  #   sql: lower(${name}) ;;
+  # }
+
+  # dimension: name_upper {
+  #   type: string
+  #   sql: upper(${name}) ;;
+  # }
+
+  # dimension: name_position {
+  #   type: string
+  #   sql: position(${name},"Coachella") ;;
+  # }
+
+  # dimension: name_replace {
+  #   type: string
+  #   sql: replace(${name} ,"Coachella","New_Word");;
+  # }
+
+  # dimension: name_substring {
+  #   type: string
+  #   sql: substring(${name},1,3) ;;
+  # }
+
 }
+
+#   -------
+#   # Here's what a typical dimension looks like in LookML.
+#   # A dimension is a groupable field that can be used to filter query results.
+#   # This dimension will be called "Brand" in Explore.
+
+#   dimension: brand {
+#     type: string
+#     sql: ${TABLE}.brand ;;
+#   }
+
+#   dimension: category {
+#     type: string
+#     sql: ${TABLE}.category ;;
+#   }
+
+#   dimension: cost {
+#     type: number
+#     sql: ${TABLE}.cost ;;
+#   }
+
+#   # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
+#   # measures for this dimension, but you can also add measures of many different aggregates.
+#   # Click on the type parameter to see all the options in the Quick Help panel on the right.
+
+#   measure: total_cost {
+#     type: sum
+#     sql: ${cost} ;;
+#   }
+
+#   measure: average_cost {
+#     type: average
+#     sql: ${cost} ;;
+#   }
+
+#   dimension: department {
+#     type: string
+#     sql: ${TABLE}.department ;;
+#   }
+
+#   dimension: distribution_center_id {
+#     type: number
+#     sql: ${TABLE}.distribution_center_id ;;
+#   }
+
+#   dimension: name {
+#     type: string
+#     sql: ${TABLE}.name ;;
+#   }
+
+#   dimension: retail_price {
+#     type: number
+#     sql: ${TABLE}.retail_price ;;
+#   }
+
+#   dimension: sku {
+#     type: string
+#     sql: ${TABLE}.sku ;;
+#   }
+
+#   measure: count {
+#     type: count
+#     drill_fields: [id, name, shipped_order_items.count]
+#   }
+# }

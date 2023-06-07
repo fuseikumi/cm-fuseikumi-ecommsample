@@ -27,34 +27,36 @@ persist_with: cm-fuseikumi-sample-ecom_default_datagroup
 
 explore: products {}
 
-explore: purchase_event {
-  join: users {
-    type: left_outer
-    sql_on: ${purchase_event.user_id} = ${users.id} ;;
-    relationship: many_to_one
-  }
-}
+# explore: products {}
 
-explore: shipped_order_items {
-  join: users {
-    type: left_outer
-    sql_on: ${shipped_order_items.user_id} = ${users.id} ;;
-    relationship: many_to_one
-  }
+# explore: purchase_event {
+#   join: users {
+#     type: left_outer
+#     sql_on: ${purchase_event.user_id} = ${users.id} ;;
+#     relationship: many_to_one
+#   }
+# }
 
-  join: products {
-    type: left_outer
-    sql_on: ${shipped_order_items.product_id} = ${products.id} ;;
-    relationship: many_to_one
-  }
-}
+# explore: shipped_order_items {
+#   join: users {
+#     type: left_outer
+#     sql_on: ${shipped_order_items.user_id} = ${users.id} ;;
+#     relationship: many_to_one
+#   }
 
-explore: users {}
+#   join: products {
+#     type: left_outer
+#     sql_on: ${shipped_order_items.product_id} = ${products.id} ;;
+#     relationship: many_to_one
+#   }
+# }
 
-explore: shipped_orders {
-  join: users {
-    type: left_outer
-    sql_on: ${shipped_orders.user_id} = ${users.id} ;;
-    relationship: many_to_one
-  }
-}
+# explore: users {}
+
+# explore: shipped_orders {
+#   join: users {
+#     type: left_outer
+#     sql_on: ${shipped_orders.user_id} = ${users.id} ;;
+#     relationship: many_to_one
+#   }
+# }
